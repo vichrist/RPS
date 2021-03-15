@@ -17,4 +17,7 @@ The game will keep track of wins, losses and ties
 ## Contributor 
 Christal Vigil 
 
+## 
+Web page pubished at https://vichrist.github.io/RPS/ -- Click to play! 
+
 
