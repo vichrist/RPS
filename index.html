@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS Game</title>
+</head>
+<body>
+    <script>
+        // variables to define wins, losses, and ties 
+        var wins = 0; 
+        var losses = 0; 
+        var ties = 0; 
+
+        // array with three possible values  
+        var compChoices = ["rock", "paper", "scissors"]; 
+
+        // for loop that sets the index of i, conditions i on amount of loops and then an increment of i occurs as conditioned on the conditional statement 
+        for (i = 0; i < 5; i ++) {
+            
+            // variable prompt for user to enter one of three choices 
+            var userChoice = prompt("Choose rock, paper or scissors");
+
+            // setting userChoice value to lower case in the event it is not already in lower case  
+            userChoice = userChoice.toLowerCase();
+
+            // creating a variable that includes the computer choices but is randomized for one only 
+            // math.random will select a random decimal between 0 (inclusive) and 1 (exclusive)
+            // adding math.floor will allow the logic to select a random integer rather than a decimal 
+            // we multiple the random integer by the value length of the array for computer choices 
+            var compChoice = compChoices[Math.floor(Math.random() * compChoices.length)]; 
+
+            // here we set the if/else statements
+            // the first statement conditions the value to be only one of the choices given   
+            if (userChoice === "rock" || userChoice === "paper" || userChoice === "scissors") {
+            
+                // we then execute the following 
+             if ((userChoice === "rock" && compChoice === "paper") || 
+                (userChoice === "paper" && compChoice === "scissors") || 
+                (userChoice === "scissors" && compChoice === "rock")) {
+                    losses++; 
+                    alert("You have lost " + losses + " time(s), the computers choice was " + compChoice);
+                } else if (userChoice === compChoice) {
+                    ties++;
+                    alert("You have tied");
+                } else {
+                    wins++; 
+                    alert("You have won " + wins + " time(s), the computers choice was " + compChoice);;                      
+                }     
+            }
+        };
+            alert("GAME OVER! Refresh to play again! You had " + wins + " win(s), " + losses + " loss (s) and " + ties + " ties"); 
+    </script>
+</body>
+</html>
